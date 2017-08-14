@@ -726,7 +726,7 @@ restart:
 		currIndex++;
 	}
 }
-static void Haribo(void)
+static void Bearpuz(void)
 {
 	SetBGMVolume(Dc->BGMVolume);
 	SetSeVolume(Dc->SeVolume);
@@ -842,7 +842,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	NtProcInit();
 	Taisen_ProcInit();
 
-	Haribo();
+	Bearpuz();
 
 	Taisen_ProcFnlz();
 	NtProcFnlz();

@@ -2,9 +2,9 @@
 <VisualStudioProject
 	ProjectType="Visual C++"
 	Version="9.00"
-	Name="Haribo"
+	Name="Bearpuz"
 	ProjectGUID="{837C2B57-6B1D-4D2D-BD87-72E282ADA3CD}"
-	RootNamespace="Haribo"
+	RootNamespace="Bearpuz"
 	Keyword="Win32Proj"
 	TargetFrameworkVersion="196613"
 	>
