@@ -792,7 +792,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	char *ltmp;
 
 	SetOutApplicationLogValidFlag(false);
-	SetDXArchiveKeyString(ltmp = xcout("%c-%s-%d", 'x', "Rucca", 8493)); // "x-Rucca-8493"
+	SetDXArchiveKeyString(ltmp = xcout("%c%s-%d", 'B', "earpuz", 8493)); // "Bearpuz-8493"
 	memFree(ltmp);
 
 	InitSettings();
