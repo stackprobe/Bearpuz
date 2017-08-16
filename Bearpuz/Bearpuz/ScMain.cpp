@@ -2,7 +2,7 @@
 	ScInit() -> ScMain() -> ScFnlz()
 */
 
-#include "StdInc.h"
+#include "all.h"
 
 static void SaveFunc(int index)
 {

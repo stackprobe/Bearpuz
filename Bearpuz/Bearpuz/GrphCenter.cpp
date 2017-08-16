@@ -1,4 +1,4 @@
-#include "StdInc.h"
+#include "all.h"
 
 char *GC_PicFiles[PIC_MAX]; // NULL == 画像の割り当てなし
 int GC_PicList[PIC_MAX]; // 未ロード時は、Dc->PicDummy とする。

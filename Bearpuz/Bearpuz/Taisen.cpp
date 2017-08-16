@@ -1,4 +1,4 @@
-#include "StdInc.h"
+#include "all.h"
 
 #define STD_CURTAIN 0.9
 #define STD_WALL (Dc->PicTitle)

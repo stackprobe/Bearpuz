@@ -1,4 +1,4 @@
-#include "StdInc.h"
+#include "all.h"
 
 #define SOUND_NUMMAX 128
 

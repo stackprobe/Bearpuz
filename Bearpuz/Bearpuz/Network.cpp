@@ -1,4 +1,4 @@
-#include "StdInc.h"
+#include "all.h"
 
 NtCommonInfo_t NtCommonInfo[2]; // [Send, Recv]
 NtSequence_t NtSequence[2]; // [Send, Recv]

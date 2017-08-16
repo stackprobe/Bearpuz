@@ -1,4 +1,4 @@
-#include "StdInc.h"
+#include "all.h"
 
 #define VAL_SIGNATURE 0x6cca
 

@@ -1,4 +1,4 @@
-#include "StdInc.h"
+#include "all.h"
 
 PzABST_Result_t PzABST_Result;
 

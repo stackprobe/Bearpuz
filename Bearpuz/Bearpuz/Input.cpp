@@ -1,4 +1,4 @@
-#include "StdInc.h"
+#include "all.h"
 
 Input_t InputList[2][INP_END]; // [1P, 2P][]
 

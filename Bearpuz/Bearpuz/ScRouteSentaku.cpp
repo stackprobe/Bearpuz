@@ -1,4 +1,4 @@
-#include "StdInc.h"
+#include "all.h"
 
 #define TITLE_X 0
 #define TITLE_Y 16

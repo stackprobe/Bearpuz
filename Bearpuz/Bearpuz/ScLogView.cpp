@@ -1,4 +1,4 @@
-#include "StdInc.h"
+#include "all.h"
 
 #define LINE_MAX 65536
 #define LINELEN_MAX 1024

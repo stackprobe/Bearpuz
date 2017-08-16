@@ -1,4 +1,4 @@
-#include "StdInc.h"
+#include "all.h"
 
 #define STD_SPEED_RT 0.8
 #define HISS_SPEED_RT 0.7

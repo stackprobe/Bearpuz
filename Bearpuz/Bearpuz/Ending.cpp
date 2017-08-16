@@ -1,4 +1,4 @@
-#include "StdInc.h"
+#include "all.h"
 
 #define FLOWER_MAX 6
 

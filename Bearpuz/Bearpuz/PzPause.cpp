@@ -1,4 +1,4 @@
-#include "StdInc.h"
+#include "all.h"
 
 #define PAUSE_CURTAIN 0.666
 #define SELITEMNUM 4

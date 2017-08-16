@@ -21,7 +21,7 @@
 	PzAI_Fnlz();   ÉQÅ[ÉÄèIóπíºå„Ç…é¿çs
 */
 
-#include "StdInc.h"
+#include "all.h"
 
 PzAI_t PzAI;
 

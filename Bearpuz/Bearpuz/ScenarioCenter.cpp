@@ -1,4 +1,4 @@
-#include "StdInc.h"
+#include "all.h"
 
 char *Scc_EventList[SCC_EVENT_MAX];
 

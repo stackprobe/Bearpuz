@@ -1,4 +1,4 @@
-#include "StdInc.h"
+#include "all.h"
 
 static void DrawSimpleWall(double a)
 {

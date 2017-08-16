@@ -4,7 +4,7 @@
 	    set params  get results
 */
 
-#include "StdInc.h"
+#include "all.h"
 
 static void NetworkModeAdjustSRand(void) // ネット対戦で、しばしば乱数のシークの同期を失う問題対策
 {

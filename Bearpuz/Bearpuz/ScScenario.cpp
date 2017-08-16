@@ -1,4 +1,4 @@
-#include "StdInc.h"
+#include "all.h"
 
 #define CHARANAME_LKAKKO "Åy"
 #define CHARANAME_RKAKKO "Åz"

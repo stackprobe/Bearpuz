@@ -1,4 +1,4 @@
-#include "StdInc.h"
+#include "all.h"
 
 __int64 PzThink_CT_SleepEndFrm;
 

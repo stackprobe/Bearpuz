@@ -1,4 +1,4 @@
-#include "StdInc.h"
+#include "all.h"
 
 static void Logo(void)
 {
@@ -803,10 +803,12 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	SetAlwaysRunFlag(true); // フォーカス外したら、true: 動く, false: 止まる。
 	ChangeWindowMode(SettInfo.FullScreenMode == 0); // true: Window, false: Full Screen
 
-	SetMainWindowText(ltmp = xcout("FLOWER-PON blt: %s", GetBuiltStamp()));
+	SetMainWindowText(ltmp = xcout("Bearpuz blt: %s", GetBuiltStamp()));
 	memFree(ltmp);
 
 	DispMusCursor(true); // これ必要？
+
+	SetWindowIconID(101); // ウィンドウ左上のアイコン
 
 	if(DxLib_Init())
 	{

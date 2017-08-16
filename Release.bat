@@ -1,10 +1,10 @@
 C:\Factory\Tools\RDMD.exe /RC out
 
-COPY /B Hetapuz\Release\Hetapuz.exe out\FLOWER_PON.exe
+COPY /B Bearpuz\Release\Bearpuz.exe out\Bearpuz.exe
 COPY /B “Y•t\* out
 
-C:\Dat\DxLib\3_07a\Tool\DXArchive\DXAEncode.exe -K:x-Rucca-8493 Resource out\Resource.dxa
+C:\Dat\DxLib\3_18c\Tool\DXArchive\DXAEncode.exe -K:Bearpuz-8493 Resource out\Resource.dxa
 
-C:\Factory\SubTools\zip.exe /O out FLOWER_PON
+C:\Factory\SubTools\zip.exe /O out Bearpuz
 
 PAUSE

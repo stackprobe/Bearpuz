@@ -1,4 +1,4 @@
-#include "StdInc.h"
+#include "all.h"
 
 char *LHissatsuTypes[HWT_MAX] =
 {

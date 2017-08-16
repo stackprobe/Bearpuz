@@ -1,4 +1,4 @@
-#include "StdInc.h"
+#include "all.h"
 
 uint mutexOpen(char *mutexName)
 {

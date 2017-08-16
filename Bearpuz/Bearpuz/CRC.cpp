@@ -1,4 +1,4 @@
-#include "StdInc.h"
+#include "all.h"
 
 static void KJam(uchar *list, uint listlen)
 {
@@ -93,7 +93,13 @@ uint crc32CheckBlock(void *block, uint blockSize)
 	uint counter = crc32NewCounter();
 
 	crc32UpdateBlock(&counter, block, blockSize);
-	return crc32Finisher(counter);
+
+#if 0
+	return crc32Finisher(counter); // これだとコンパイラがエラーwww
+#else
+	ExtraJamming((uchar *)&counter);
+	return counter ^ 0xffffffff;
+#endif
 }
 uint crc32CheckLine(char *line)
 {
