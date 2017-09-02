@@ -735,8 +735,7 @@ start_logo:
 	DispMusCursor(false);
 	Logo();
 	PlayDouga(ResourcePath("opening.mpg"));
-//	PlayDouga(ResourcePath("Flower_PuzzleOP_High.mpg"));
-//	PlayMovie(ResourcePath("Flower_PuzzleOP_High.mpg"), 1, DX_MOVIEPLAYTYPE_BCANCEL);
+//	PlayMovie(ResourcePath("opening.mpg"), 1, DX_MOVIEPLAYTYPE_BCANCEL);
 	DispMusCursor(true);
 
 start_title:
