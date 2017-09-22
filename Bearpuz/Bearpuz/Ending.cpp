@@ -70,6 +70,14 @@ void Ending(char *endCdLine)
 
 	int endCode;
 
+#if 1
+	     if(!strcmp(endCdLine, "E_ROBOHUNT"  )) endCode = ED_ROBOHUNT;
+	else if(!strcmp(endCdLine, "E_TRUE"      )) endCode = ED_TRUE;
+	else if(!strcmp(endCdLine, "E_ROBOBOSS"  )) endCode = ED_ROBOBOSS;
+	else if(!strcmp(endCdLine, "E_MOTHER"    )) endCode = ED_MOTHER;
+	else if(!strcmp(endCdLine, "E_TRUEAFTER" )) endCode = ED_TRUEAFTER;
+	else                                        error();
+#else // _Orig
 	     if(!strcmp(endCdLine, "E_GI")) endCode = ED_GI;
 	else if(!strcmp(endCdLine, "E_GJ")) endCode = ED_GJ;
 	else if(!strcmp(endCdLine, "E_GP")) endCode = ED_GP;
@@ -77,6 +85,7 @@ void Ending(char *endCdLine)
 	else if(!strcmp(endCdLine, "E_IP")) endCode = ED_IP;
 	else if(!strcmp(endCdLine, "E_PJ")) endCode = ED_PJ;
 	else                                error();
+#endif
 
 	int bgm;
 	int wallnum;
@@ -86,10 +95,14 @@ void Ending(char *endCdLine)
 
 	switch(endCode)
 	{
+	// TODO
+	default:
+	/*
 	case ED_GJ:
 	case ED_GP:
 	case ED_IJ:
 	case ED_IP:
+	*/
 		{
 			bgm = LoadBGM(ResourcePath("シナリオ\\エンディング\\ED1.mp3"));
 			bgmendms = 1000 * 95;
@@ -97,8 +110,12 @@ void Ending(char *endCdLine)
 		}
 		break;
 
+	// TODO
+	case ED_TRUEAFTER:
+	/*
 	case ED_GI:
 	case ED_PJ:
+	*/
 		{
 			bgm = LoadBGM(ResourcePath("シナリオ\\エンディング\\ED2.mp3"));
 			bgmendms = 1000 * 120;
@@ -106,8 +123,10 @@ void Ending(char *endCdLine)
 		}
 		break;
 
+	/*
 	default:
 		error();
+		*/
 	}
 	
 	for(int index = 0; index < wallnum; index++)

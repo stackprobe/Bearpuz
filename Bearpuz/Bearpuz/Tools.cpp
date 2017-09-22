@@ -414,3 +414,15 @@ void ExecMyPrint(void)
 		}
 	}
 }
+int GetPicTitle(void)
+{
+	errorCase(!Dc);
+
+	if(SettInfo.EndingWatchedList[ED_TRUEAFTER])
+		return Dc->PicTitleExtraClear;
+
+	if(SettInfo.EndingWatchedList[ED_TRUE])
+		return Dc->PicTitleExtra;
+
+	return Dc->PicTitle;
+}

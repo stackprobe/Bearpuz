@@ -52,32 +52,32 @@ static void InitItemPosList(void)
 		case 0:
 			ipic  = PIC_RS_GJ;
 			ipicf = PIC_RS_GJFocus;
-			ihide = SettInfo.RouteOpenList[ROL_A] == 0;
+			ihide = 0;//SettInfo.RouteOpenList[ROL_A] == 0; // TODO
 			break;
 		case 1:
 			ipic  = PIC_RS_IP;
 			ipicf = PIC_RS_IPFocus;
-			ihide = SettInfo.RouteOpenList[ROL_A] == 0;
+			ihide = 0;//SettInfo.RouteOpenList[ROL_A] == 0; // TODO
 			break;
 		case 2:
 			ipic  = PIC_RS_GP;
 			ipicf = PIC_RS_GPFocus;
-			ihide = SettInfo.RouteOpenList[ROL_B] == 0;
+			ihide = 0;//SettInfo.RouteOpenList[ROL_B] == 0; // TODO
 			break;
 		case 3:
 			ipic  = PIC_RS_IJ;
 			ipicf = PIC_RS_IJFocus;
-			ihide = SettInfo.RouteOpenList[ROL_B] == 0;
+			ihide = 0;//SettInfo.RouteOpenList[ROL_B] == 0; // TODO
 			break;
 		case 4:
 			ipic  = PIC_RS_GI;
 			ipicf = PIC_RS_GIFocus;
-			ihide = SettInfo.RouteOpenList[ROL_C] == 0;
+			ihide = 0;//SettInfo.RouteOpenList[ROL_C] == 0; // TODO
 			break;
 		case 5:
 			ipic  = PIC_RS_PJ;
 			ipicf = PIC_RS_PJFocus;
-			ihide = SettInfo.RouteOpenList[ROL_C] == 0;
+			ihide = 0;//SettInfo.RouteOpenList[ROL_C] == 0; // TODO
 			break;
 
 		default:

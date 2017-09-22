@@ -43,6 +43,8 @@ Kidoku_t;
 
 #define KIDOKU_MAX 2048
 
+// _Orig
+/*
 enum
 {
 	ROL_A,
@@ -51,6 +53,7 @@ enum
 
 	ROL_MAX, // == len
 };
+*/
 
 // <---
 
@@ -99,7 +102,7 @@ typedef struct Settings_st
 	Kidoku_t KidokuList[KIDOKU_MAX];
 	int KidokuCount;
 
-	int RouteOpenList[ROL_MAX];
+//	int RouteOpenList[ROL_MAX];
 	int EndingWatchedList[ED_MAX];
 
 	int NtInited;

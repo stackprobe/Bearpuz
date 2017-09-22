@@ -1,6 +1,10 @@
 // -- デバッグ用 --
 
-//#define CHEAT_MODE
+//*
+#define CHEAT_MODE 1 // debug
+/*/
+#define CHEAT_MODE 0 // product
+//*/
 
 // ----
 
@@ -195,12 +199,23 @@ extern int CorrectPairs[CORRECT_PAIR_MAX][2];
 // エンディング
 enum
 {
+#if 1
+	ED_ROBOHUNT,
+	ED_TRUE,
+	ED_ROBOBOSS,
+	ED_MOTHER,
+	ED_TRUEAFTER,
+#else // _Orig
 	ED_GI,
 	ED_GJ,
 	ED_GP,
 	ED_IJ,
 	ED_IP,
 	ED_PJ,
+#endif
 
 	ED_MAX,
 };
+
+#define SCREEN_W 800
+#define SCREEN_H 600

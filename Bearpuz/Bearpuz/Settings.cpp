@@ -143,9 +143,12 @@ void InitSettings(void)
 	InitInput();
 	Input2SettInfo();
 
+	// _Orig
+	/*
 	SettInfo.RouteOpenList[ROL_A] = 1; // 最初から開通
 	SettInfo.RouteOpenList[ROL_B] = 0; // ROL_A クリアで開通
 	SettInfo.RouteOpenList[ROL_C] = 0; // ROL_B クリアで開通
+	*/
 
 	SettInfo.ScreenZoom = 1.0;
 }
@@ -200,9 +203,12 @@ void LoadSettings(void)
 			SettInfo.KidokuList[index].HiestActionIndex = ReadInt(0, BORDER_OF_NUMERIC);
 		}
 
+		// _Orig
+		/*
 		SettInfo.RouteOpenList[ROL_A] = ReadInt(0, 1);
 		SettInfo.RouteOpenList[ROL_B] = ReadInt(0, 1);
 		SettInfo.RouteOpenList[ROL_C] = ReadInt(0, 1);
+		*/
 
 		for(int index = 0; index < ED_MAX; index++)
 		{
@@ -298,9 +304,12 @@ void SaveSettings(void)
 		WriteInt(SettInfo.KidokuList[index].HiestActionIndex);
 	}
 
+	// _Orig
+	/*
 	WriteInt(SettInfo.RouteOpenList[ROL_A] ? 1 : 0);
 	WriteInt(SettInfo.RouteOpenList[ROL_B] ? 1 : 0);
 	WriteInt(SettInfo.RouteOpenList[ROL_C] ? 1 : 0);
+	*/
 
 	for(int index = 0; index < ED_MAX; index++)
 	{

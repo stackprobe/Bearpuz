@@ -11,7 +11,7 @@ void DcInit_LoadAllPicture(void)
 	Dc->PicLogo   = Dc->PicDummy; // LoadPicture(ResourcePath("画像\\ロゴ画面.png"));
 	Dc->PicTitle  = LoadPicture(ResourcePath("画像\\スタート画面.png"));
 	Dc->PicTitleExtra = LoadPicture(ResourcePath("画像\\スタート画面extra開放.png"));
-	Dc->PicTitleExtraClear = LoadPicture(ResourcePath("画像\\スタート画面extraクリア.png"));
+	Dc->PicTitleExtraClear = LoadPicture(ResourcePath("画像\\スタート画面オールクリア.png"));
 	Dc->PicSelect = Dc->PicDummy; // LoadPicture(ResourcePath("画像\\選択肢.png"));
 	Dc->PicExit   = Dc->PicDummy; // LoadPicture(ResourcePath("画像\\体験版終了.png"));
 
@@ -336,6 +336,6 @@ Gnd_t Gnd;
 
 void GndInit(void)
 {
-	Gnd.RealScreen.W = 800;
-	Gnd.RealScreen.H = 600;
+//	SCREEN_W = 800;
+//	SCREEN_H = 600;
 }

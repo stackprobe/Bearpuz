@@ -513,16 +513,16 @@ void PlayDouga(char *file)
 	int disp_w;
 	int disp_h;
 
-	disp_w = Gnd.RealScreen.W;
-	disp_h = (int)(MOV_H / (double)MOV_W * Gnd.RealScreen.W);
+	disp_w = SCREEN_W;
+	disp_h = (int)(MOV_H / (double)MOV_W * SCREEN_W);
 
-	if(Gnd.RealScreen.H < disp_h)
+	if(SCREEN_H < disp_h)
 	{
-		disp_w = (int)(MOV_W / (double)MOV_H * Gnd.RealScreen.H);
-		disp_h = Gnd.RealScreen.H;
+		disp_w = (int)(MOV_W / (double)MOV_H * SCREEN_H);
+		disp_h = SCREEN_H;
 	}
-	disp_l = (Gnd.RealScreen.W - disp_w) / 2;
-	disp_t = (Gnd.RealScreen.H - disp_h) / 2;
+	disp_l = (SCREEN_W - disp_w) / 2;
+	disp_t = (SCREEN_H - disp_h) / 2;
 
 	SetDougaVolume(mov, Dc->BGMVolume * 0.8); // mpgの音が少しでかい。
 //	SetDougaVolume(mov, Dc->BGMVolume);
@@ -568,7 +568,7 @@ void PlayDouga(char *file)
 		SetAntiAlias(0);
 
 clsDx();
-printfDx("ムービーはダミーだよ。");
+printfDx("[DEBUG]ムービーはダミーだよ。");
 
 		/*
 			最初の数フレームに変な映像が入り込む。

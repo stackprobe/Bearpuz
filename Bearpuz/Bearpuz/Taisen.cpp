@@ -1,7 +1,7 @@
 #include "all.h"
 
 #define STD_CURTAIN 0.9
-#define STD_WALL (Dc->PicTitle)
+#define STD_WALL (GetPicTitle())
 
 typedef struct TaisenInfo_st
 {

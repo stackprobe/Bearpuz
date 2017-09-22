@@ -150,12 +150,16 @@ void DcFnlz(void);
 
 typedef struct Gnd_st
 {
+	int Dummy;
+
+	/*
 	struct
 	{
 		int W;
 		int H;
 	}
 	RealScreen;
+	*/
 }
 Gnd_t;
 extern Gnd_t Gnd;

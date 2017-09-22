@@ -227,10 +227,10 @@ static void PreTitle_Orig(void)
 
 		SetAlpha(frmpct);
 		SetAntiAlias(1);
-		DppInit(Dc->PicTitle, 400.0, 300.0, 1);
+		DppInit(GetPicTitle(), 400.0, 300.0, 1);
 		DppZoom(z);
 		DppDraw();
-//		SimpleDraw(Dc->PicTitle, 0, 0, 1);
+//		SimpleDraw(GetPicTitle(), 0, 0, 1);
 		SetAntiAlias(0);
 		ResetAlpha();
 
@@ -246,6 +246,7 @@ static void PreTitle(void)
 	int frmidx;
 	double frmpct;
 	double z = 1.2;
+	double x = 100.0;
 
 	frameloop(frmidx, frmpct, 30)
 	{
@@ -253,16 +254,17 @@ static void PreTitle(void)
 
 		SetAlpha(frmpct);
 		SetAntiAlias(1);
-		DppInit(Dc->PicTitle, 400.0, 300.0, 1);
+		DppInit(GetPicTitle(), 400.0 + x, 300.0, 1);
 		DppZoom(z);
 		DppDraw();
-//		SimpleDraw(Dc->PicTitle, 0, 0, 1);
+//		SimpleDraw(GetPicTitle(), 0, 0, 1);
 		SetAntiAlias(0);
 		ResetAlpha();
 
 		SwapFrame();
 
 		nearize(z, 1.0, 0.85);
+		nearize(x, 0.0, 0.75);
 	}
 }
 
@@ -276,10 +278,10 @@ static void Title(void)
 	// [][CursorX, CursorY, MusX1, MusY1, MusX2, MuxY2]
 	int locs[TITLE_ITEM_NUM][6] =
 	{
-		{ 44, 145, 60, 140, 280, 170, },
-		{ 44, 195, 60, 190, 280, 220, },
-		{ 44, 246, 60, 240, 280, 270, },
-		{ 44, 299, 60, 290, 280, 320, },
+		{ 260, 200, 50, 200, 250, 250, },
+		{ 260, 260, 50, 260, 250, 310, },
+		{ 260, 320, 50, 320, 250, 370, },
+		{ 260, 380, 50, 380, 250, 430, },
 	};
 	int frmidx;
 	double frmpct;
@@ -314,7 +316,8 @@ restart:
 				currIndex = i;
 			}
 		}
-		int extraInside = nearthan(((double)mx), ((double)my), 703.0, 245.0, 50.0);
+		int trueAfterInside = nearthan(((double)mx), ((double)my), 690.0, 290.0, 90.0); // True-After クリック位置
+		int extraInside     = nearthan(((double)mx), ((double)my), 690.0, 490.0, 90.0); // EXTRA クリック位置
 
 #ifdef CHEAT_MODE
 		if(IsHit(KEY_INPUT_1))
@@ -336,8 +339,9 @@ restart:
 		}
 		if(IsHit(KEY_INPUT_4))
 		{
-//			Ending("E_IP");
-			Ending("E_PJ");
+			// todo
+//			Ending("E_TRUE");
+			Ending("E_TRUEAFTER");
 		}
 		if(IsRenda(KEY_INPUT_H)) m_incDenom(box_x, -2.0);
 		if(IsRenda(KEY_INPUT_J)) m_incDenom(box_y, -2.0);
@@ -389,31 +393,30 @@ restart:
 
 		if(decide)
 		{
-			if(extraInside)
+			if(
+				trueAfterInside &&
+				SettInfo.EndingWatchedList[ED_TRUE] // ? True-After 開放条件達成
+				)
 			{
-				int jouken = 1;
-
-				// 暫定解除！
-				/*
-				if(SettInfo.EndingWatchedList[ED_GI] == 0) jouken = 0;
-				if(SettInfo.EndingWatchedList[ED_GJ] == 0) jouken = 0;
-				if(SettInfo.EndingWatchedList[ED_GP] == 0) jouken = 0;
-				if(SettInfo.EndingWatchedList[ED_IJ] == 0) jouken = 0;
-				if(SettInfo.EndingWatchedList[ED_IP] == 0) jouken = 0;
-				if(SettInfo.EndingWatchedList[ED_PJ] == 0) jouken = 0;
-				*/
-
 				if(kirara_frmcnt == 0)
 				{
-					PzefAddStarPon(703.0, 245.0, 35);
+					PzefAddStarPon(600.0, 200.0, 35);
 					kirara_frmcnt = 35;
-//					PzefAddStarPon(703.0, 245.0, 7);
-//					kirara_frmcnt = 20;
 				}
-				if(jouken) // 暫定解除！
+				// TestTaisen(); // TODO -- True-After 突入
+			}
+
+			if(
+				extraInside &&
+				SettInfo.EndingWatchedList[ED_TRUEAFTER] // ? EXTRA 開放条件達成
+				)
+			{
+				if(kirara_frmcnt == 0)
 				{
-					TestTaisen();
+					PzefAddStarPon(600.0, 400.0, 35);
+					kirara_frmcnt = 35;
 				}
+				TestTaisen();
 			}
 			if(currIndex != -1)
 			{
@@ -422,7 +425,7 @@ restart:
 			}
 		}
 
-		SimpleDraw(Dc->PicTitle, 0, 0, 0);
+		SimpleDraw(GetPicTitle(), 0, 0, 0);
 
 		if(
 			0.0 <= box_x && box_x <= 800.0 ||
@@ -499,7 +502,7 @@ restart:
 		SimpleDraw(Dc->PicBlackWall, 0, 0, 0);
 
 		SetAlpha(1.0 - frmpct);
-		SimpleDraw(Dc->PicTitle, 0, 0, 0);
+		SimpleDraw(GetPicTitle(), 0, 0, 0);
 		ResetAlpha();
 
 		SwapFrame();
@@ -733,10 +736,13 @@ restart:
 		}
 		else if(eventLine[0] == 'R') // ルート開放
 		{
+			// _Orig
+			/*
 			     if(!strcmp(eventLine, "R_Route_A")) SettInfo.RouteOpenList[ROL_A] = 1;
 			else if(!strcmp(eventLine, "R_Route_B")) SettInfo.RouteOpenList[ROL_B] = 1;
 			else if(!strcmp(eventLine, "R_Route_C")) SettInfo.RouteOpenList[ROL_C] = 1;
 			else                                     error();
+			*/
 
 			SaveSettings();
 		}
@@ -876,7 +882,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		ClearDrawScreen();
 
 		SetAlpha(frmpct);
-		DrawExtendGraph(0, 0, Gnd.RealScreen.W, Gnd.RealScreen.H, loadchuu, 0);
+		DrawExtendGraph(0, 0, SCREEN_W, SCREEN_H, loadchuu, 0);
 		ResetAlpha();
 
 //		SwapFrame(); // たぶんまだ使えない。
@@ -884,7 +890,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		ScreenFlip();
 	}
 	clsDx();
-	printfDx("Loading...");
+	printfDx("[DEBUG]ロード中");
 	ScreenFlip();
 
 	uint64 logoStartedTime = GetTickCount64();
