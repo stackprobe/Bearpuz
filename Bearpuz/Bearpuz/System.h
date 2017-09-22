@@ -15,6 +15,7 @@ extern int Sys_EscapePressed;
 void SFS_Reset(void);
 void SwapFrameScreen(void);
 void SwapFrame(void);
+void Pub_ScreenZoomControl(void);
 
 int IsPress(int key);
 extern int IH_LastPressed;

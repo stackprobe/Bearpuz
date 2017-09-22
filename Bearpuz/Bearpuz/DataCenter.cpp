@@ -8,9 +8,11 @@ void DcInit_LoadAllPicture(void)
 	Dc->PicBlackWall = LoadPicture(ResourcePath("補助\\黒壁.png"));
 	Dc->PicWhiteWall = LoadPicture(ResourcePath("補助\\白壁.png"));
 
-	Dc->PicLogo   = LoadPicture(ResourcePath("画像\\ロゴ画面.png"));
+	Dc->PicLogo   = Dc->PicDummy; // LoadPicture(ResourcePath("画像\\ロゴ画面.png"));
 	Dc->PicTitle  = LoadPicture(ResourcePath("画像\\スタート画面.png"));
-	Dc->PicSelect = LoadPicture(ResourcePath("画像\\選択肢.png"));
+	Dc->PicTitleExtra = LoadPicture(ResourcePath("画像\\スタート画面extra開放.png"));
+	Dc->PicTitleExtraClear = LoadPicture(ResourcePath("画像\\スタート画面extraクリア.png"));
+	Dc->PicSelect = Dc->PicDummy; // LoadPicture(ResourcePath("画像\\選択肢.png"));
 	Dc->PicExit   = Dc->PicDummy; // LoadPicture(ResourcePath("画像\\体験版終了.png"));
 
 	Dc->PicTitleCursor = LoadPicture(ResourcePath("画像\\メニュー画面選択ボタン.png"));
@@ -328,4 +330,12 @@ void DcFnlz(void)
 	*/
 
 	// memFree(Dc); // 終了間際にも、Dc 使うようになってしまったので、開放しちゃだめ!!
+}
+
+Gnd_t Gnd;
+
+void GndInit(void)
+{
+	Gnd.RealScreen.W = 800;
+	Gnd.RealScreen.H = 600;
 }

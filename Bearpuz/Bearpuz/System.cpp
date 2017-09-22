@@ -247,6 +247,10 @@ static void ScreenZoomControl(void)
 		frmcnt++;
 	}
 }
+void Pub_ScreenZoomControl(void)
+{
+	ScreenZoomControl();
+}
 int ProcFrmCnt;
 void SwapFrame(void)
 {
@@ -501,7 +505,26 @@ void PlayDouga(char *file)
 	int mov = LoadGraph(file);
 //	int rate = GetOneFrameTimeMovieToGraph(mov);
 
-	SetDougaVolume(mov, Dc->BGMVolume * 0.75); // mpgの音が少しでかい。
+	int MOV_W = 1280, MOV_H = 720; // test
+//	int MOV_W = 800, MOV_H = 400; // product
+
+	int disp_l;
+	int disp_t;
+	int disp_w;
+	int disp_h;
+
+	disp_w = Gnd.RealScreen.W;
+	disp_h = (int)(MOV_H / (double)MOV_W * Gnd.RealScreen.W);
+
+	if(Gnd.RealScreen.H < disp_h)
+	{
+		disp_w = (int)(MOV_W / (double)MOV_H * Gnd.RealScreen.H);
+		disp_h = Gnd.RealScreen.H;
+	}
+	disp_l = (Gnd.RealScreen.W - disp_w) / 2;
+	disp_t = (Gnd.RealScreen.H - disp_h) / 2;
+
+	SetDougaVolume(mov, Dc->BGMVolume * 0.8); // mpgの音が少しでかい。
 //	SetDougaVolume(mov, Dc->BGMVolume);
 //	SetMovieVolumeToGraph(10000, mov);
 //	SetMovieVolumeToGraph((int)(Dc->BGMVolume * 10000.0), mov);
@@ -533,12 +556,19 @@ void PlayDouga(char *file)
 			chuudan = 1;
 		}
 
+		ClearDrawScreen();
+
 		if(chuudan)
 		{
 			PauseMovieToGraph(mov);
 			break;
 		}
-		DrawExtendGraph(0, 0, 800, 600, mov, 0);
+		SetAntiAlias(1); // 拡縮する場合は必要っぽい。
+		DrawExtendGraph(disp_l, disp_t, disp_l + disp_w, disp_t + disp_h, mov, 0);
+		SetAntiAlias(0);
+
+clsDx();
+printfDx("ムービーはダミーだよ。");
 
 		/*
 			最初の数フレームに変な映像が入り込む。
@@ -558,6 +588,8 @@ void PlayDouga(char *file)
 		termination(0);
 	}
 	Sys_EscapeDisable = 0;
+
+clsDx();
 }
 void GameTermination(void)
 {

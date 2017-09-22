@@ -191,7 +191,7 @@ static void PT_AddBlock(double x, double y, double r, double z, int color, int s
 
 	AddFrameTask((int (*)(void *))PT_Task, (void *)i);
 }
-static void PreTitle(void)
+static void PreTitle_Orig(void)
 {
 	const int sfcnum = 9;
 	int sfcList[sfcnum];
@@ -219,6 +219,32 @@ static void PreTitle(void)
 		SimpleDraw(Dc->PicBlackWall, 0, 0, 0);
 		SwapFrame();
 	}
+	double z = 1.2;
+
+	frameloop(frmidx, frmpct, 30)
+	{
+		SimpleDraw(Dc->PicBlackWall, 0, 0, 0);
+
+		SetAlpha(frmpct);
+		SetAntiAlias(1);
+		DppInit(Dc->PicTitle, 400.0, 300.0, 1);
+		DppZoom(z);
+		DppDraw();
+//		SimpleDraw(Dc->PicTitle, 0, 0, 1);
+		SetAntiAlias(0);
+		ResetAlpha();
+
+		SwapFrame();
+
+		nearize(z, 1.0, 0.85);
+	}
+}
+static void PreTitle(void)
+{
+	// TODO 何か入れたい。
+
+	int frmidx;
+	double frmpct;
 	double z = 1.2;
 
 	frameloop(frmidx, frmpct, 30)
@@ -417,6 +443,7 @@ restart:
 			}
 		}
 
+#if 0 // _Orig
 		// 'EXTRA'
 		{
 			double ex_x[5];
@@ -452,6 +479,7 @@ restart:
 				SetAntiAlias(0);
 			}
 		}
+#endif
 
 		SwapFrame();
 
@@ -733,9 +761,9 @@ static void Bearpuz(void)
 
 start_logo:
 	DispMusCursor(false);
-	Logo();
-	PlayDouga(ResourcePath("opening.mpg"));
-//	PlayMovie(ResourcePath("opening.mpg"), 1, DX_MOVIEPLAYTYPE_BCANCEL);
+//	Logo(); // 廃止
+	PlayDouga(ResourcePath("opening.ogv"));
+//	PlayMovie(ResourcePath("opening.ogv"), 1, DX_MOVIEPLAYTYPE_BCANCEL); // old
 	DispMusCursor(true);
 
 start_title:
@@ -788,6 +816,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	if(!ProcMutexLock())
 		return 0;
 
+	GndInit();
+
 	char *ltmp;
 
 	SetOutApplicationLogValidFlag(false);
@@ -824,13 +854,41 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		ウィンドウの右下をドラッグで、ウィンドウ伸縮 true: 可, false: 不可
 		可にすると SetWindowSizeExtendRate() の最大サイズに影響する。
 	*/
-//	SetWindowSizeChangeEnableFlag(true);
+//	SetWindowSizeChangeEnableFlag(true); // -> ScreenZoomControl()
 
-	// -- ロード中 --
+	// ---- クレジット_表示 ----
+
 	ClearDrawScreen();
-	int loadchuu = LoadGraph(ResourcePath("System\\ロード中.png"));
-	if(loadchuu != -1) SimpleDraw(loadchuu, 461, 525, 1);
+	int loadchuu = LoadGraph(ResourcePath("画像\\ロゴ画面.png"));
+	errorCase(loadchuu == -1);
+
+	int frmidx;
+	double frmpct;
+
+	frameloop(frmidx, frmpct, 10)
+	{
+		Pub_ScreenZoomControl();
+		ScreenFlip();
+	}
+	frameloop(frmidx, frmpct, 40)
+	{
+//		SimpleDraw(Dc->PicBlackWall, 0, 0, 0); // 未ロード
+		ClearDrawScreen();
+
+		SetAlpha(frmpct);
+		DrawExtendGraph(0, 0, Gnd.RealScreen.W, Gnd.RealScreen.H, loadchuu, 0);
+		ResetAlpha();
+
+//		SwapFrame(); // たぶんまだ使えない。
+		Pub_ScreenZoomControl();
+		ScreenFlip();
+	}
+	clsDx();
+	printfDx("Loading...");
 	ScreenFlip();
+
+	uint64 logoStartedTime = GetTickCount64();
+
 	// ----
 
 	DcInit();
@@ -842,6 +900,35 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	Scc_ProcInit();
 	NtProcInit();
 	Taisen_ProcInit();
+
+	// ---- クレジット_消す ----
+
+	clsDx();
+
+	while(GetTickCount() < logoStartedTime + 2000)
+//	frameloop(frmidx, frmpct, 10)
+	{
+		SwapFrame();
+	}
+	frameloop(frmidx, frmpct, 40)
+	{
+		SimpleDraw(Dc->PicBlackWall, 0, 0, 0);
+
+		SetAlpha(1.0 - frmpct);
+		SimpleDraw(loadchuu, 0, 0, 0);
+		ResetAlpha();
+
+		SwapFrame();
+	}
+	DeleteGraph(loadchuu);
+
+	frameloop(frmidx, frmpct, 10)
+	{
+		SimpleDraw(Dc->PicBlackWall, 0, 0, 0);
+		SwapFrame();
+	}
+
+	// ----
 
 	Bearpuz();
 

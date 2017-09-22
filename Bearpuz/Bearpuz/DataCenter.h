@@ -8,6 +8,8 @@ typedef struct Dc_st
 
 	int PicLogo;
 	int PicTitle;
+	int PicTitleExtra;
+	int PicTitleExtraClear;
 	int PicTitleCursor;
 	int PicSelect;
 	int PicExit;
@@ -145,3 +147,17 @@ void DcInit_LoadAllPictureSafe(void);
 
 void DcInit(void);
 void DcFnlz(void);
+
+typedef struct Gnd_st
+{
+	struct
+	{
+		int W;
+		int H;
+	}
+	RealScreen;
+}
+Gnd_t;
+extern Gnd_t Gnd;
+
+void GndInit(void);
