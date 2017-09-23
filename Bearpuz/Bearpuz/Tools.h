@@ -90,4 +90,5 @@ void MyCls(void);
 void MyPrint(char *line);
 void MyPrint_x(char *line);
 void ExecMyPrint(void);
+int IsExtraReleased(void);
 int GetPicTitle(void);

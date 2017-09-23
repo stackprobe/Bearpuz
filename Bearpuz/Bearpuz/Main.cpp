@@ -316,7 +316,7 @@ restart:
 				currIndex = i;
 			}
 		}
-		int trueAfterInside = nearthan(((double)mx), ((double)my), 690.0, 290.0, 90.0); // True-After クリック位置
+//		int trueAfterInside = nearthan(((double)mx), ((double)my), 690.0, 290.0, 90.0); // True-After クリック位置 botsu
 		int extraInside     = nearthan(((double)mx), ((double)my), 690.0, 490.0, 90.0); // EXTRA クリック位置
 
 #ifdef CHEAT_MODE
@@ -340,8 +340,8 @@ restart:
 		if(IsHit(KEY_INPUT_4))
 		{
 			// todo
-//			Ending("E_TRUE");
-			Ending("E_TRUEAFTER");
+//			Ending("E_IP");
+			Ending("E_PJ");
 		}
 		if(IsRenda(KEY_INPUT_H)) m_incDenom(box_x, -2.0);
 		if(IsRenda(KEY_INPUT_J)) m_incDenom(box_y, -2.0);
@@ -393,23 +393,7 @@ restart:
 
 		if(decide)
 		{
-			if(
-				trueAfterInside &&
-				SettInfo.EndingWatchedList[ED_TRUE] // ? True-After 開放条件達成
-				)
-			{
-				if(kirara_frmcnt == 0)
-				{
-					PzefAddStarPon(600.0, 200.0, 35);
-					kirara_frmcnt = 35;
-				}
-				// TestTaisen(); // TODO -- True-After 突入
-			}
-
-			if(
-				extraInside &&
-				SettInfo.EndingWatchedList[ED_TRUEAFTER] // ? EXTRA 開放条件達成
-				)
+			if(extraInside && IsExtraReleased())
 			{
 				if(kirara_frmcnt == 0)
 				{

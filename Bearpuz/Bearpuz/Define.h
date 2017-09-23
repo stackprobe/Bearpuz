@@ -199,19 +199,19 @@ extern int CorrectPairs[CORRECT_PAIR_MAX][2];
 // エンディング
 enum
 {
-#if 1
+#if 0 // botsu
 	ED_ROBOHUNT,
 	ED_TRUE,
 	ED_ROBOBOSS,
 	ED_MOTHER,
 	ED_TRUEAFTER,
-#else // _Orig
+#else
 	ED_GI,
 	ED_GJ,
 	ED_GP,
 	ED_IJ,
-	ED_IP,
-	ED_PJ,
+	ED_IP, // Best End 1 ???
+	ED_PJ, // Best End 2 ???
 #endif
 
 	ED_MAX,

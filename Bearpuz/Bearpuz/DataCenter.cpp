@@ -4,14 +4,14 @@ Dc_t *Dc;
 
 void DcInit_LoadAllPicture(void)
 {
-	Dc->PicDummy = LoadPicture(ResourcePath("補助\\Dummy.png"));
+	Dc->PicDummy     = LoadPicture(ResourcePath("補助\\Dummy.png"));
 	Dc->PicBlackWall = LoadPicture(ResourcePath("補助\\黒壁.png"));
 	Dc->PicWhiteWall = LoadPicture(ResourcePath("補助\\白壁.png"));
 
-	Dc->PicLogo   = Dc->PicDummy; // LoadPicture(ResourcePath("画像\\ロゴ画面.png"));
-	Dc->PicTitle  = LoadPicture(ResourcePath("画像\\スタート画面.png"));
-	Dc->PicTitleExtra = LoadPicture(ResourcePath("画像\\スタート画面extra開放.png"));
-	Dc->PicTitleExtraClear = LoadPicture(ResourcePath("画像\\スタート画面オールクリア.png"));
+	Dc->PicLogo = Dc->PicDummy; // LoadPicture(ResourcePath("画像\\ロゴ画面.png"));
+	Dc->PicTitle           = LoadPicture(ResourcePath("画像\\スタート画面.png"));
+	Dc->PicTitleExtra      = LoadPicture(ResourcePath("画像\\スタート画面extra開放.png"));
+//	Dc->PicTitleExtraClear = LoadPicture(ResourcePath("画像\\スタート画面オールクリア.png")); // botsu
 	Dc->PicSelect = Dc->PicDummy; // LoadPicture(ResourcePath("画像\\選択肢.png"));
 	Dc->PicExit   = Dc->PicDummy; // LoadPicture(ResourcePath("画像\\体験版終了.png"));
 
@@ -69,7 +69,7 @@ void DcInit_LoadAllPicture(void)
 	Dc->PicPauseItem[3][0] = LoadPicture(ResourcePath("System\\Button\\設定.png"));
 	Dc->PicPauseItem[3][1] = LoadPicture(ResourcePath("System\\Button\\設定選択中.png"));
 
-	Dc->PicCIStar  = LoadPicture(ResourcePath("カットイン\\Star.png"));
+	Dc->PicCIStar = LoadPicture(ResourcePath("カットイン\\Star.png"));
 	Dc->PicCI1P1Ren3 = Dc->PicDummy; // LoadPicture(ResourcePath("カットイン\\伊三連鎖.png"));
 	Dc->PicCI1P2Ren3 = Dc->PicDummy; // LoadPicture(ResourcePath("カットイン\\日三連鎖.png"));
 	Dc->PicCI2P1Ren3 = Dc->PicDummy; // LoadPicture(ResourcePath("カットイン\\独三連鎖.png"));
@@ -284,31 +284,31 @@ void DcInit(void)
 
 	Dc->BGM_Title = LoadBGM(ResourcePath("音\\hetaria.mp3"));
 
-	Dc->SeReady    = LoadSound(ResourcePath("音\\ready.wav"));
-	Dc->SeStart    = LoadSound(ResourcePath("音\\スタート.wav"));
-	Dc->SeFlower   = LoadSound(ResourcePath("音\\モノクロフラワー_少量.wav"));
-	Dc->SeFlowerLot= LoadSound(ResourcePath("音\\モノクロフラワー_大量.wav"));
-	Dc->SeMove     = LoadSound(ResourcePath("音\\横移動.wav"));
-	Dc->SeRotate   = LoadSound(ResourcePath("音\\回転.wav"));
-	Dc->SeErase    = LoadSound(ResourcePath("音\\消えるときの音.wav"));
-	Dc->SeDecide   = LoadSound(ResourcePath("音\\着地.wav"));
-	Dc->SeBomb     = LoadSound(ResourcePath("音\\必殺技.wav"));
+	Dc->SeReady     = LoadSound(ResourcePath("音\\ready.wav"));
+	Dc->SeStart     = LoadSound(ResourcePath("音\\スタート.wav"));
+	Dc->SeFlower    = LoadSound(ResourcePath("音\\モノクロフラワー_少量.wav"));
+	Dc->SeFlowerLot = LoadSound(ResourcePath("音\\モノクロフラワー_大量.wav"));
+	Dc->SeMove      = LoadSound(ResourcePath("音\\横移動.wav"));
+	Dc->SeRotate    = LoadSound(ResourcePath("音\\回転.wav"));
+	Dc->SeErase     = LoadSound(ResourcePath("音\\消えるときの音.wav"));
+	Dc->SeDecide    = LoadSound(ResourcePath("音\\着地.wav"));
+	Dc->SeBomb      = LoadSound(ResourcePath("音\\必殺技.wav"));
 
-	Dc->SeIkuyo = LoadSound(ResourcePath("音\\いっくよー.wav"));
-	Dc->SeUwa   = LoadSound(ResourcePath("音\\うわあ.wav"));
-	Dc->SeEi    = LoadSound(ResourcePath("音\\えい.wav"));
-	Dc->SeSore  = LoadSound(ResourcePath("音\\それっ.wav"));
-	Dc->SeHa    = LoadSound(ResourcePath("音\\はっ.wav"));
-	Dc->SeGo    = LoadSound(ResourcePath("音\\ゴー.wav"));
-	Dc->SeSpCmd = LoadSound(ResourcePath("音\\スペシャルコマンド.wav"));
-	Dc->SeRucca = LoadSound(ResourcePath("音\\ルッカ.wav"));
-	Dc->SeJReady= LoadSound(ResourcePath("音\\レディー.wav"));
-	Dc->SeRen3  = LoadSound(ResourcePath("音\\三連鎖.wav"));
-	Dc->SeRen5  = LoadSound(ResourcePath("音\\五連鎖.wav"));
-	Dc->SeRen7  = LoadSound(ResourcePath("音\\最終連鎖.wav"));
-	Dc->SeWin   = LoadSound(ResourcePath("音\\勝利ボイス.wav"));
-	Dc->SeLose  = LoadSound(ResourcePath("音\\敗北ボイス.wav"));
-	Dc->SeHissOk= LoadSound(ResourcePath("音\\go.mp3"));
+	Dc->SeIkuyo  = LoadSound(ResourcePath("音\\いっくよー.wav"));
+	Dc->SeUwa    = LoadSound(ResourcePath("音\\うわあ.wav"));
+	Dc->SeEi     = LoadSound(ResourcePath("音\\えい.wav"));
+	Dc->SeSore   = LoadSound(ResourcePath("音\\それっ.wav"));
+	Dc->SeHa     = LoadSound(ResourcePath("音\\はっ.wav"));
+	Dc->SeGo     = LoadSound(ResourcePath("音\\ゴー.wav"));
+	Dc->SeSpCmd  = LoadSound(ResourcePath("音\\スペシャルコマンド.wav"));
+	Dc->SeRucca  = LoadSound(ResourcePath("音\\ルッカ.wav"));
+	Dc->SeJReady = LoadSound(ResourcePath("音\\レディー.wav"));
+	Dc->SeRen3   = LoadSound(ResourcePath("音\\三連鎖.wav"));
+	Dc->SeRen5   = LoadSound(ResourcePath("音\\五連鎖.wav"));
+	Dc->SeRen7   = LoadSound(ResourcePath("音\\最終連鎖.wav"));
+	Dc->SeWin    = LoadSound(ResourcePath("音\\勝利ボイス.wav"));
+	Dc->SeLose   = LoadSound(ResourcePath("音\\敗北ボイス.wav"));
+	Dc->SeHissOk = LoadSound(ResourcePath("音\\go.mp3"));
 
 	Dc->SeBellWin  = LoadSound(ResourcePath("音\\勝利ジングル.mp3"));
 	Dc->SeBellLose = LoadSound(ResourcePath("音\\敗北ジングル.mp3"));
@@ -336,6 +336,6 @@ Gnd_t Gnd;
 
 void GndInit(void)
 {
-//	SCREEN_W = 800;
-//	SCREEN_H = 600;
+//	Gnd.RealScreen.W = 800;
+//	Gnd.RealScreen.H = 600;
 }

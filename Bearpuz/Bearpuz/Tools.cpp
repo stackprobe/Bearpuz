@@ -414,14 +414,15 @@ void ExecMyPrint(void)
 		}
 	}
 }
+int IsExtraReleased(void)
+{
+	return SettInfo.EndingWatchedList[ED_IP] || SettInfo.EndingWatchedList[ED_PJ];
+}
 int GetPicTitle(void)
 {
 	errorCase(!Dc);
 
-	if(SettInfo.EndingWatchedList[ED_TRUEAFTER])
-		return Dc->PicTitleExtraClear;
-
-	if(SettInfo.EndingWatchedList[ED_TRUE])
+	if(IsExtraReleased())
 		return Dc->PicTitleExtra;
 
 	return Dc->PicTitle;

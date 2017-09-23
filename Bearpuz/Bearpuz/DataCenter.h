@@ -9,7 +9,7 @@ typedef struct Dc_st
 	int PicLogo;
 	int PicTitle;
 	int PicTitleExtra;
-	int PicTitleExtraClear;
+	//int PicTitleExtraClear; // botsu
 	int PicTitleCursor;
 	int PicSelect;
 	int PicExit;

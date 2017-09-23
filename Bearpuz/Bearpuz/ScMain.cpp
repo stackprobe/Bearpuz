@@ -595,12 +595,13 @@ void ScMain(void)
 
 #ifdef CHEAT_MODE
 			printfDx(
-				"E:(%d,%d,%d,%d,%d) P:(%d,%d) "
-				,SettInfo.EndingWatchedList[0] // ED_ROBOHUNT
-				,SettInfo.EndingWatchedList[1] // ED_TRUE
-				,SettInfo.EndingWatchedList[2] // ED_ROBOBOSS
-				,SettInfo.EndingWatchedList[3] // ED_MOTHER
-				,SettInfo.EndingWatchedList[4] // ED_TRUEAFTER
+				"E:(%d,%d,%d,%d,%d,%d) P:(%d,%d) "
+				,SettInfo.EndingWatchedList[0] // ED_GI
+				,SettInfo.EndingWatchedList[1] // ED_GJ
+				,SettInfo.EndingWatchedList[2] // ED_GP
+				,SettInfo.EndingWatchedList[3] // ED_IJ
+				,SettInfo.EndingWatchedList[4] // ED_IP
+				,SettInfo.EndingWatchedList[5] // ED_PJ
 				,Scdc->ActionIndex
 				,kdk_hiaidx
 				);

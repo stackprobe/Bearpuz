@@ -102,7 +102,7 @@ typedef struct Settings_st
 	Kidoku_t KidokuList[KIDOKU_MAX];
 	int KidokuCount;
 
-//	int RouteOpenList[ROL_MAX];
+//	int RouteOpenList[ROL_MAX]; // _Orig
 	int EndingWatchedList[ED_MAX];
 
 	int NtInited;
