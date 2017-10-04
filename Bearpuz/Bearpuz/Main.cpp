@@ -753,6 +753,7 @@ start_logo:
 	DispMusCursor(false);
 //	Logo(); // 廃止
 	PlayDouga(ResourcePath("opening.ogv"));
+//	PlayDouga(ResourcePath("orig\\opening.mp4")); // test
 //	PlayMovie(ResourcePath("opening.ogv"), 1, DX_MOVIEPLAYTYPE_BCANCEL); // old
 	DispMusCursor(true);
 
@@ -884,12 +885,14 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	DcInit();
 	SettInfo2Other();
 
+	// 初期化 {
 	GC_ProcInit();
 	ScProcInit();
 	ScRotSenProcInit();
 	Scc_ProcInit();
 	NtProcInit();
 	Taisen_ProcInit();
+	// }
 
 	// ---- クレジット_消す ----
 
@@ -922,12 +925,14 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 	Bearpuz();
 
+	// 開放 -- 初期化の逆順 {
 	Taisen_ProcFnlz();
 	NtProcFnlz();
 	Scc_ProcFnlz();
 	ScRotSenProcFnlz();
 	ScProcFnlz();
 	GC_ProcFnlz();
+	// }
 
 	DcFnlz();
 
