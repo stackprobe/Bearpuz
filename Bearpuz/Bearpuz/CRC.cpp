@@ -95,7 +95,7 @@ uint crc32CheckBlock(void *block, uint blockSize)
 	crc32UpdateBlock(&counter, block, blockSize);
 
 #if 0
-	return crc32Finisher(counter); // これだとコンパイラがエラーwww
+	return crc32Finisher(counter); // ----> fatal error C1001: コンパイラで内部エラー
 #else
 	ExtraJamming((uchar *)&counter);
 	return counter ^ 0xffffffff;
