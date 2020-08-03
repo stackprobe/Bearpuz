@@ -896,7 +896,7 @@ static void ExecFrameMap(int mapIndex)
 			if(m->PanelTable[2][3].Puyo != NULL) m->RakkaY--;
 			if(m->PanelTable[2][2].Puyo != NULL) m->RakkaY--;
 
-			while(m->RakkaY < 0) m->RakkaY++; // todo!
+			while(m->RakkaY < 0) m->RakkaY++; // HACK!
 		}
 		m->NeedInitRakka = 0;
 		m->AntiRakkaTimer = 30;

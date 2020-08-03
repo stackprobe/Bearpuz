@@ -96,7 +96,7 @@ static void WriteLine(char *line)
 }
 static void WriteInt64(__int64 value)
 {
-if(!SdFp) return; // todo?
+if(!SdFp) return; // HACK?
 
 	errorCase(!SdFp);
 	errorCase(!ForWrite);

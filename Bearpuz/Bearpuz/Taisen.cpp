@@ -1325,7 +1325,7 @@ static void ClientWaitForServer(NtTomodachiInfo_t *dachi, int tbEnable)
 	}
 	i->Ack = 1;
 
-	for(int i = 0; i < 100; i++) // todo: 受信を確認できないが、確実に Ack を送る必要がある。
+	for(int i = 0; i < 100; i++) // HACK: 受信を確認できないが、確実に Ack を送る必要がある。
 	{
 		TntCls();
 		MyPrint("　送信中 ...");

@@ -339,7 +339,7 @@ restart:
 		}
 		if(IsHit(KEY_INPUT_4))
 		{
-			// todo
+			// HACK
 //			Ending("E_IP");
 			Ending("E_PJ");
 		}
