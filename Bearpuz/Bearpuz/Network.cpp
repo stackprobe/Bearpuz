@@ -156,7 +156,7 @@ static int UDPRecvBlock(void *block, int blockSize) // ret : ? 受信した。
 
 	NtLastUDPRecvCount = 0;
 
-	for(int lpcnt = 0; lpcnt < 99990000; lpcnt++) // fixme: 上限適当。低いと問題アリ、そもそも上限を決めることに意味があるのか？
+	for(int lpcnt = 0; lpcnt < 99990000; lpcnt++) // todo: 上限適当。低いと問題アリ、そもそも上限を決めることに意味があるのか？
 	{
 //LogWrite("lpcnt", lpcnt); // カウンタが上がり続けるようなら NetWorkRecvUDP() の最後のオプションのバグを疑え！
 
