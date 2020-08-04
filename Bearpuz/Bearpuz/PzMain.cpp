@@ -896,7 +896,7 @@ static void ExecFrameMap(int mapIndex)
 			if(m->PanelTable[2][3].Puyo != NULL) m->RakkaY--;
 			if(m->PanelTable[2][2].Puyo != NULL) m->RakkaY--;
 
-			while(m->RakkaY < 0) m->RakkaY++; // HACK!
+			while(m->RakkaY < 0) m->RakkaY++; // HACK
 		}
 		m->NeedInitRakka = 0;
 		m->AntiRakkaTimer = 30;
@@ -1311,7 +1311,7 @@ static void ExecFramePuyo()
 					if(i->TrueY < i->RealY)
 					{
 						i->RealY = i->TrueY;
-						
+
 						for(int c = Get_Rnd(2) + 1; c; c--) // ƒJƒ`ƒ“™
 						{
 							double idoR = rnd() * 2.0 * PI;
